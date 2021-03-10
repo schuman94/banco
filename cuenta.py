@@ -15,6 +15,9 @@ class Cuenta:
     def set_titular(self, titular):
         self.__titular = titular
 
+    def get_titular(self):
+        return self.__titular
+
     def __set_movimientos(self, movimientos):
         self.__movimientos = movimientos
 
@@ -27,10 +30,10 @@ class Cuenta:
 #Utilizar funciones de orden superior para unificar retirar y depositar
     def retirar(self, concepto, cantidad):
         m = Movimiento(concepto, -cantidad)
-        self.__movimientos.anyadir_movimientos(m)
-        self.actualizar_saldo()
+        self.__movimientos.anyadir_movimiento(m)
+        self.__actualizar_saldo()
 
     def depositar(self, concepto, cantidad):
         m = Movimiento(concepto, cantidad)
-        self.__movimientos.anyadir_movimientos(m)
-        self.actualizar_saldo()
+        self.__movimientos.anyadir_movimiento(m)
+        self.__actualizar_saldo()

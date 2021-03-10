@@ -4,6 +4,9 @@ class Cliente:
         self.set_nombre(nombre)
         self.set_apellidos(apellidos)
 
+    def __str__(self):
+        return self.nombre() + ' ' + self.apellidos()
+
     def set_dni(self, dni):
         self.__dni = dni
 
