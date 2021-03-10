@@ -19,3 +19,9 @@ class Movimientos:
         for i in self.__list_mov():
             saldo += i
         return saldo
+
+m1 = Movimiento('Deposito 100', 100)
+m2 = Movimiento('Retirada 50', -50)
+m3 = Movimiento('Deposito 16', 16)
+mov = Movimientos([m1, m2, m3])
+mov.calcula_saldo()
