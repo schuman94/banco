@@ -16,7 +16,7 @@ class Cuenta:
         self.__titular = titular
 
     def __set_movimientos(self, movimientos):
-        self.__movimientos = Movimientos(movimientos)
+        self.__movimientos = movimientos
 
     def __actualizar_saldo(self):
             self.__saldo = self.__movimientos.calcula_saldo()
