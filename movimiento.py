@@ -4,7 +4,7 @@ class Movimiento:
         self.__cantidad = cantidad
 
     def concepto(self):
-        return self.concepto
+        return self.__concepto
 
     def cantidad(self):
-        return self.cantidad
+        return self.__cantidad
