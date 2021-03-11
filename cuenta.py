@@ -13,12 +13,9 @@ class Cuenta:
         self.__actualizar_saldo()
         Cuentas.anyadir_cuenta(self)
 
-
-
     def __set_numero(self):
         Cuenta.num_cuenta += 1
         self.__numero = Cuenta.num_cuenta
-
 
     def get_numero(self):
         return self.__numero
@@ -34,7 +31,6 @@ class Cuenta:
 
     def get_movimientos(self):
         return self.__movimientos
-
 
     def __actualizar_saldo(self):
             self.__saldo = self.__movimientos.calcula_saldo()
