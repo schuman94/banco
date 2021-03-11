@@ -1,6 +1,7 @@
 from cliente import Cliente
 from movimientos import Movimientos
 from movimiento import Movimiento
+from cuentas import Cuentas
 
 class Cuenta:
     num_cuenta = 0
@@ -10,6 +11,9 @@ class Cuenta:
         self.set_titular(titular)
         self.__set_movimientos(movimientos)
         self.__actualizar_saldo()
+        Cuentas.anyadir_cuenta(self)
+
+
 
     def __set_numero(self):
         Cuenta.num_cuenta += 1
@@ -35,7 +39,7 @@ class Cuenta:
         return self.__saldo
 
     def __str__(self):
-        return 'Nº:' + str(self.get_numero()) + ' | ' + 'Titular: ' + str(self.get_titular()) + ' | ' + 'Saldo: ' + str(self.saldo_actual())
+        return 'ID:' + str(self.get_numero()) + ' | ' + 'Titular: ' + str(self.get_titular()) + ' | ' + 'Saldo: ' + str(self.saldo_actual())
 
 #Utilizar funciones de orden superior para unificar retirar y depositar
     def retirar(self, concepto, cantidad):
