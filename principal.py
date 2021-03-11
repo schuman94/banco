@@ -4,10 +4,9 @@ from movimientos import Movimientos
 from movimiento import Movimiento
 
 
-cli = Cliente('49047421A', 'Antonio', 'Matinez')
-m1 = Movimiento('Deposito 100', 100)
-m2 = Movimiento('Retirada 50', -50)
-m3 = Movimiento('Deposito 16', 16)
-cuen = Cuenta(1, cli, Movimientos([m1, m2, m3]))
+antonio = Cliente('49047421A', 'Antonio', 'Matinez')
+cuen1 = Cuenta(antonio, Movimientos([Movimiento('Deposito 100', 100), Movimiento('Retirada 50', -50), Movimiento('Deposito 16', 16)]))
+cuen2 = Cuenta(antonio, Movimientos([Movimiento('Deposito 400', 400), Movimiento('Retirada 10', -10), Movimiento('Deposito 26', 26), Movimiento('Retirada 100', -100)]))
 
-print(cuen.saldo_actual())
+print(cuen1)
+print(cuen2)
