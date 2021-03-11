@@ -32,6 +32,10 @@ class Cuenta:
     def __set_movimientos(self, movimientos):
         self.__movimientos = movimientos
 
+    def get_movimientos(self):
+        return self.__movimientos
+
+
     def __actualizar_saldo(self):
             self.__saldo = self.__movimientos.calcula_saldo()
 
@@ -41,13 +45,19 @@ class Cuenta:
     def __str__(self):
         return 'ID:' + str(self.get_numero()) + ' | ' + 'Titular: ' + str(self.get_titular()) + ' | ' + 'Saldo: ' + str(self.saldo_actual())
 
-#Utilizar funciones de orden superior para unificar retirar y depositar
-    def retirar(self, concepto, cantidad):
-        m = Movimiento(concepto, -cantidad)
-        self.__movimientos.anyadir_movimiento(m)
+    def __operar(self, concepto, cantidad):
+        self.__movimientos.anyadir_movimiento(Movimiento(concepto, cantidad))
         self.__actualizar_saldo()
 
+    def retirar(self, concepto, cantidad):
+        self.__operar(concepto, -cantidad)
+
     def depositar(self, concepto, cantidad):
-        m = Movimiento(concepto, cantidad)
-        self.__movimientos.anyadir_movimiento(m)
-        self.__actualizar_saldo()
+        self.__operar(concepto, cantidad)
+
+    def mostrar_historial(self):
+        historial = self.get_movimientos().historial()
+        contador = 1
+        for i in historial:
+            print(f'Operacion {contador}| ' + str(i))
+            contador += 1

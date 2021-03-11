@@ -14,3 +14,6 @@ class Movimiento:
 
     def cantidad(self):
         return self.__cantidad
+
+    def __str__(self):
+        return 'Cantidad: ' + str(self.cantidad()) + ' | Concepto: ' + str(self.concepto())

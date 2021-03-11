@@ -5,6 +5,7 @@ class Movimientos:
         self.__list_mov = lista
 
     def __get_list_mov(self):
+        """Devuelve una lista (mutable) con todos los movimientos"""
         return self.__list_mov
 
     def mostrar_movimientos(self):
@@ -18,3 +19,7 @@ class Movimientos:
         for i in self.__get_list_mov():
             saldo += i.cantidad()
         return saldo
+
+    def historial(self):
+        """Devuelve una tupla (no mutable) con todos los movimientos"""
+        return tuple(self.__get_list_mov())
